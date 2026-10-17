@@ -1,4 +1,4 @@
-<meta charset="utf-8"><meta name="robots" content="noindex"><title>Marcel-Azul Gramß · Portfolio</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Marcel-Azul Gramß · Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>/* Classic two-column: fixed identity column on the left, scrolling content on the right.
    Dark blue accent (light blue in dark mode), matching the Bewerbung PDFs (Marcel, 2026-10-14). */
@@ -79,8 +79,9 @@ section{display:grid;gap:24px;scroll-margin-top:24px}
 .btn:disabled{opacity:.4;cursor:default}
 .reset{justify-self:start;margin:0 16px 16px;padding:0;border:0;background:none;font:500 13px var(--f);color:var(--muted);text-decoration:underline;cursor:pointer}
 
-.flow{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:1px solid var(--rule)}
-.flow li{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:14px 0 14px 20px;position:relative}
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:1px solid var(--rule);grid-template-columns:minmax(96px,max-content) minmax(0,1fr)}
+/* subgrid: the label column is as wide as the widest label (German "Agentenschleife" overflowed 96px), rows stay aligned */
+.flow li{display:grid;grid-column:1/-1;grid-template-columns:96px 1fr;grid-template-columns:subgrid;gap:16px;padding:14px 0 14px 20px;position:relative}
 .flow li::before{content:"";position:absolute;left:-4px;top:22px;width:7px;height:7px;border-radius:50%;background:var(--bar-dim)}
 .flow li.is-gate{background:var(--accent-bg);border-radius:0 8px 8px 0}
 .flow li.is-gate::before{background:var(--accent)}
